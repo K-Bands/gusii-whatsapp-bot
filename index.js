@@ -12,6 +12,7 @@ const token = "4o2bne6deb1i373w";
 
 const url = `https://api.ultramsg.com/${instanceId}/messages/chat`;
 
+const ULTRA_BASE_URL = `https://api.ultramsg.com/instance136436/messages/chat`;
 
 const stories = {
   "1": {
