@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 
 const instanceId = "instance136436";
-const token = "4o2bne6deb1i373w";
+const TOKEN = "4o2bne6deb1i373w";
 
 const url = `https://api.ultramsg.com/${instanceId}/messages/chat`;
 
