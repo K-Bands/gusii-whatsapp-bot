@@ -7,9 +7,11 @@ require('dotenv').config();
 const app = express();
 app.use(bodyParser.json());
 
-const INSTANCE_ID = process.env.INSTANCE_ID;
-const TOKEN = process.env.TOKEN;
-const ULTRA_BASE_URL = `https://api.ultramsg.com/${INSTANCE_ID}/messages/chat`;
+const instanceId = "instance136436";
+const token = "4o2bne6deb1i373w";
+
+const url = `https://api.ultramsg.com/${instanceId}/messages/chat`;
+
 
 const stories = {
   "1": {
