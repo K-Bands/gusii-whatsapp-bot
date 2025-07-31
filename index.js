@@ -1,4 +1,3 @@
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
@@ -10,9 +9,7 @@ app.use(bodyParser.json());
 const instanceId = "instance136436";
 const TOKEN = "4o2bne6deb1i373w";
 
-const url = `https://api.ultramsg.com/${instanceId}/messages/chat`;
-
-const ULTRA_BASE_URL = `https://api.ultramsg.com/instance136436/messages/chat`;
+const ULTRA_BASE_URL = `https://api.ultramsg.com/${instanceId}/messages/chat`;
 
 const stories = {
   "1": {
@@ -38,18 +35,12 @@ app.post('/webhook', async (req, res) => {
 
   if (stories[text]) {
     const { title, url } = stories[text];
-    reply = `🎙️ *${title}*
-Listen: ${url}`;
+    reply = `🎙️ *${title}*\nListen: ${url}`;
   } else {
-    reply = `👋 Welcome to the *Gusii Audio Library*!
-Reply with a number to hear a story:
-1. Enyamasano ya Bosongo
-2. Obokano bwa Gekondo
-3. Chimbeba ne Chinkondi`;
+    reply = `👋 Welcome to the *Gusii Audio Library*!\nReply with a number to hear a story:\n1. Enyamasano ya Bosongo\n2. Obokano bwa Gekondo\n3. Chimbeba ne Chinkondi`;
   }
 
-  await axios.post(ULTRA_BASE_URL, {
-    token: TOKEN,
+  await axios.post(`${ULTRA_BASE_URL}?token=${TOKEN}`, {
     to: from,
     body: reply
   });
@@ -57,5 +48,5 @@ Reply with a number to hear a story:
   res.sendStatus(200);
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => console.log(`WhatsApp bot running on port ${PORT}`));
