@@ -54,5 +54,5 @@ Reply with a number to hear a story:
   res.sendStatus(200);
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`WhatsApp bot running on port ${PORT}`));
